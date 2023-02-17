@@ -1,4 +1,4 @@
-the task is:
+
 
 ''' The goal of this project is to create a weather app that shows the current weather conditions and forecast for a specific location.
 
