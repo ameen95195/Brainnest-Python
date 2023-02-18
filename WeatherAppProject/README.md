@@ -15,3 +15,13 @@ Here are the steps you can take to create this project:
     Use the datetime library to display the current time and date. '''
 
 Weather App.py
+
+Tasks:  
+1- subscribe to OpenWeatherMap API (free subscription).  
+2- create a class that connects to OpenWeatherMap API and gets (weather conditions and forecasts for a specific location) 
+3- create class models that carry weather data depending on retrieved weather data. 
+4- create GUI for the app 
+5- Connect the GUI with OpenWeatherMap API 
+
+this image is taken from OpenWeatherMap official website so we can desing somthing like this if we can.
+![image](https://user-images.githubusercontent.com/46929687/219900857-b79edf79-d1d7-43b4-8afa-61cdf19450df.png)
