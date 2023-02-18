@@ -29,4 +29,5 @@ Tasks:
 
 
 this image is taken from OpenWeatherMap official website so we can desing somthing like this if we can.
-![image](https://user-images.githubusercontent.com/46929687/219900857-b79edf79-d1d7-43b4-8afa-61cdf19450df.png)
+![image](https://user-images.githubusercontent.com/46929687/219901041-b8f40dbb-6b14-4f7f-97f0-460f8e4d2ba7.png)
+
