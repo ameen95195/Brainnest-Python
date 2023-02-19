@@ -17,9 +17,9 @@ Here are the steps you can take to create this project:
 Weather App.py
 
 Tasks:  
-1- subscribe to OpenWeatherMap API (free subscription).  
+1- subscribe to OpenWeatherMap API (free subscription).  taken by Samuel
 
-2- create a class that connects to OpenWeatherMap API and gets (weather conditions and forecasts for a specific location) 
+2- create a class that connects to OpenWeatherMap API and gets (weather conditions and forecasts for a specific location) taken by Samuel
 
 3- create class models that carry weather data depending on retrieved weather data. 
 
