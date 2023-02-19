@@ -4,7 +4,6 @@ Probably needs more testing, but it works for now.
 use Weather(location, api_key) to create a new weather object
 use get_temperature() to get the temperature in Celsius
 use get_humidity() to get the humidity in %
-use get_wind_speed() to get the wind speed in m/s
 """
 import requests
 class Weather:
