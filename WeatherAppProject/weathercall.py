@@ -5,7 +5,17 @@ use Weather(location) to create a new weather object
 use get_temperature() to get the temperature in Celsius
 use get_humidity() to get the humidity in %
 """
-import requests
+
+try:
+    import requests
+except ImportError:
+    from time import sleep
+    print("Requests module not found, installing...")
+    sleep(3)
+    import os
+    os.system("pip install requests")
+    import requests
+
 
 api_key = "8eecf449bc7b6049b0aff522cb7526f5"
 
@@ -24,10 +34,12 @@ class Weather:
         weather = self.get_weather()
         temp = weather['main']['temp']
         temp = temp - 273.15
-        return temp
+        return f"{temp:.2f}°C"
 
     def get_humidity(self):
         weather = self.get_weather()
         humidity = weather['main']['humidity']
-        return humidity
+        return f"{humidity}%"
+
+print(Weather("London").get_temperature())
 
