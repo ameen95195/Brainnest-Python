@@ -4,6 +4,8 @@ Probably needs more testing, but it works for now.
 use Weather(location) to create a new weather object
 use get_temperature() to get the temperature in Celsius
 use get_humidity() to get the humidity in %
+temperature and humidity are stored as strings in the object
+so you can use them as such object_name.temperature for temperature and object_name.humidity for humidity
 """
 
 try:
@@ -24,6 +26,8 @@ class Weather:
         global api_key
         self.location = location
         self.api_key = api_key
+        self.temperature = self.get_temperature()
+        self.humidity = self.get_humidity()
 
     def get_weather(self):
         url = f'https://api.openweathermap.org/data/2.5/weather?q={self.location}&appid={self.api_key}'
@@ -41,5 +45,5 @@ class Weather:
         humidity = weather['main']['humidity']
         return f"{humidity}%"
 
-print(Weather("London").get_temperature())
+
 
