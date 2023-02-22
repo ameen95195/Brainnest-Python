@@ -42,6 +42,9 @@ forcast_dates = [StringVar()] * FORCAST_DAYS
 forcast_min_max_temp = [StringVar()] * FORCAST_DAYS
 forcast_weather_description = [StringVar()] * FORCAST_DAYS
 
+# weather icon
+icon = None
+
 
 def get_icon_url(icon_name: str):
     return f"http://openweathermap.org/img/wn/{icon_name}@2x.png"
@@ -98,12 +101,9 @@ def current_weather_assign_data(current_weather_data: BaseWeatherModel):
     minmax = f"{current_weather_data.temp_max:.0f} / {current_weather_data.temp_min:.0f}°C"
     humidity_with_min_max_temp_text.set(f"Humidity: {current_weather_data.humidity}% --- {minmax}")
 
-    # u = urlopen(get_icon_url(current_weather_data.weather_model.icon))
-    # raw_data = u.read()
-    # u.close()
-    #
-    # im = PILImage.open(BytesIO(raw_data))
-    # img = ImageTk.PhotoImage(im)
+    im = PILImage.open(urlopen(get_icon_url(current_weather_data.weather_model.icon)))
+    img = ImageTk.PhotoImage(im)
+    icon.config(image=img)
 
 
 def forcast_weather_assign_data(forcast_weather_data: [ForcastWeatherModel]):
@@ -120,6 +120,8 @@ def forcast_weather_assign_data(forcast_weather_data: [ForcastWeatherModel]):
         temp_date = datetime.datetime.fromtimestamp(forcast.dt)
         if temp_date.day == prev_day:
             continue
+        if index >= len(forcast_dates):
+            break
 
         prev_day = temp_date.day
         forcast_dates[index].set(temp_date.strftime("%d-%B-%Y"))
