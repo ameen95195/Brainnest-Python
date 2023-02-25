@@ -101,9 +101,9 @@ def current_weather_assign_data(current_weather_data: BaseWeatherModel):
     minmax = f"{current_weather_data.temp_max:.0f} / {current_weather_data.temp_min:.0f}°C"
     humidity_with_min_max_temp_text.set(f"Humidity: {current_weather_data.humidity}% --- {minmax}")
 
-    im = PILImage.open(urlopen(get_icon_url(current_weather_data.weather_model.icon)))
+    im = PILImage.open(urlopen(get_icon_url(current_weather_data.weather_model.icon), context=None))
     img = ImageTk.PhotoImage(im)
-    icon.config(image=img)
+    icon.config(image=img, bg="red")
 
 
 def forcast_weather_assign_data(forcast_weather_data: [ForcastWeatherModel]):
@@ -167,10 +167,6 @@ forcast_weather_frame = Frame(bottom_frame, bg=body_color)
 forcast_weather_frame.pack(side=RIGHT, ipady=5, ipadx=5)
 
 # =================current weather widgets====================
-# icon of weather status
-icon = Label(current_weather_frame)
-icon.grid_configure(row=0, column=0)
-
 # current date
 date = datetime.date.today()
 Label(current_weather_frame, text=date.strftime("%d-%B-%Y"), font=h4_font, fg="red") \
@@ -179,6 +175,11 @@ Label(current_weather_frame, text=date.strftime("%d-%B-%Y"), font=h4_font, fg="r
 # temp label and icon frame
 temp_icon_frame = Frame(current_weather_frame)
 temp_icon_frame.grid_configure(row=1, column=0, padx=2, pady=2)
+
+# icon of weather status
+icon = Label(temp_icon_frame)
+icon.grid_configure(row=1, column=0)
+
 # temp label
 Label(temp_icon_frame, font=h1_font, textvariable=temp_text).grid_configure(row=1, column=1, padx=2, pady=2)
 
