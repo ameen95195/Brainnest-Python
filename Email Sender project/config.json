@@ -1,0 +1,11 @@
+{
+  "host-server": "smtp.titan.email",
+  "port": "465",
+  "sender-email": "**********",
+  "sender-password": "*******",
+  "daily-schedule-time": "13:00",
+  "attachment-location": "reqfiles/report.txt",
+  "recipients-emails": ["******@gmail.com", "*******@gmail.com", "*****@gmail.com"],
+  "Subject": "Daily reports",
+  "message-content": "Hi this is our daily report"
+}
