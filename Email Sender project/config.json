@@ -1,11 +1,11 @@
 {
   "host-server": "smtp.titan.email",
   "port": "465",
-  "sender-email": "**********",
-  "sender-password": "*******",
+  "sender-email": "ameen.a@agri-ext.com",
+  "sender-password": "Am.123456",
   "daily-schedule-time": "13:00",
   "attachment-location": "reqfiles/report.txt",
-  "recipients-emails": ["******@gmail.com", "*******@gmail.com", "*****@gmail.com"],
-  "Subject": "Daily reports",
-  "message-content": "Hi this is our daily report"
+  "recipients-emails": ["nawaf08054@gmail.com", "*******@gmail.com", "*****@gmail.com"],
+  "Subject": "hiiii",
+  "message-content": "Hi ya teees"
 }

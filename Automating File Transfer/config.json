@@ -1,0 +1,9 @@
+{
+  "host-server": "ftp.us.debian.org",
+  "login-user": "",
+  "login-password": "",
+  "daily-schedule-time": "13:00",
+  "remote-folder-path": "",
+  "local-folder-path": "",
+  "network-folder-path": ""
+}
