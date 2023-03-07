@@ -1,5 +1,6 @@
 import json
 import time
+from datetime import datetime
 from ftplib import FTP
 from threading import Thread
 import os
@@ -9,6 +10,13 @@ from typing import Any
 import schedule
 
 import constants
+
+
+def logs(e):
+    with open("logs.txt", "a") as log:
+        log.write(f'[{datetime.now()}] ' + str(e) + '\n')
+        log.close()
+    print(e)
 
 
 class Main:
@@ -45,12 +53,15 @@ class Main:
                 self.download_file(ftp, file, self.fileconfig[constants.LOCAL_FOLDER_PATH])
                 print(f"downloading complete {file}...")
         except Exception as e:
-            print(e)
+            logs(e)
 
     def move_files_to_internal_network(self):
-
+        """
+        moving files from local directory to internal network directory
+        warning!!! if internal network folder or path not exists it will make a directory with the same given path
+        """
         if self.fileconfig[constants.NETWORK_FOLDER_PATH] != "" \
-                and os.path.exists(self.fileconfig[constants.NETWORK_FOLDER_PATH]) == False:
+                and os.path.exists(self.fileconfig[constants.NETWORK_FOLDER_PATH]) == False:  # check path exists
             os.makedirs(self.fileconfig[constants.NETWORK_FOLDER_PATH])
         try:
             print("start moving files to internal network")
@@ -60,7 +71,7 @@ class Main:
                 shutil.move(source, destination)
                 print(f"{file} has been moved to internal network")
         except Exception as e:
-            print(e)
+            logs(e)
 
     def check_config_file(self) -> dict | None:
         """
@@ -76,10 +87,10 @@ class Main:
                     raise ValueError
 
         except ValueError:
-            print("config file missing some data...!")
+            logs("config file missing some data...!")
             return None
         except Exception as e:
-            print(e)
+            logs(e)
             return None
 
     def download_file(self, ftp: FTP, filename, localpath=""):
@@ -94,8 +105,7 @@ class Main:
             with open(localpath + filename, "wb") as f:
                 ftp.retrbinary("RETR " + filename, f.write)
         except Exception as e:
-            print(e)
+            logs(e)
 
 
 Main()
-
