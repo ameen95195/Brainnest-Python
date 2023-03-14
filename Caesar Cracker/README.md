@@ -1,5 +1,5 @@
 This is an Caesar cipher cracker project 
-# The goal of this project is to hack messages encrypted ith the Caesar cipher
+# The goal of this project is to hack messages encrypted with Caesar cipher method
 
 #instructions to run the project 
 
