@@ -1,0 +1,9 @@
+{
+  "host-server": "ftp.us.debian.org",
+  "login-user": "",
+  "login-password": "",
+  "daily-schedule-time": "13:00",
+  "remote-folder-path": "debian",
+  "local-folder-path": "./downloads/",
+  "internal-network-folder-path": "//DESKTOP-CHNLE0P/Users/Public/Documents/iles-transfaerd"
+}

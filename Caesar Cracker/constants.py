@@ -1,0 +1,8 @@
+# constants variables
+
+SMALL_LETTER = 64
+CAPITAL_LETTER = 96
+BASE_COUNT = 26
+CAPITAL_Z = 122
+SMALL_Z = 90
+

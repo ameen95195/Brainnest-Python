@@ -14,7 +14,7 @@ from datetime import datetime
 class Main:
 
     def __init__(self):
-        # read config.json file
+        # read text.txt file
         with open("config.json") as f:
             self.configfile = json.load(f)
 
@@ -37,7 +37,7 @@ class Main:
         attach = self.get_attach_file()
         if attach is None:
             if not input("there is an error getting attached file\n "
-                         "please add correct attachment-location in config.json and press any key to continue\n"
+                         "please add correct attachment-location in text.txt and press any key to continue\n"
                          " or (e) to send the message without attachment: ").lower().__eq__("e"):
                 self.start_process()
                 return
@@ -49,7 +49,7 @@ class Main:
     def get_attach_file(self):
         """
 
-        :return: attached file that specify in config.json file with key: attachment-location
+        :return: attached file that specify in text.txt file with key: attachment-location
         """
         print("Getting attachment....")
         att_file_name = self.configfile[Consts.ATTACH_LOCATION].split("/")[-1]  # getting file name only
@@ -70,7 +70,7 @@ class Main:
 
     def sendemails(self, receivers: [str], e_msg: MIMEMultipart()):
         """
-        send emails to all receptions in config.json array element with key: recipients-emails
+        send emails to all receptions in text.txt array element with key: recipients-emails
         :param receivers: the receptions e-mail
         :param e_msg: MIMEMultipart object message
         """
