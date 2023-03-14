@@ -30,7 +30,7 @@ def get_closest_decode(text):
         points = 0
         decode_result = decode.decode(text, i, True)
         for word in decode_result.split():
-            if word in commonwords:
+            if word.lower() in commonwords:
                 points += 1
         if prev_points < points:
             index = i
@@ -57,7 +57,7 @@ with open("text.txt") as f:
     for line in f.readlines():
         encrypted_text += line
 
-choice = input("Hi this is caesar cracker.txt program\n is text.txt file contain encrypted text? (y/n): ")
+choice = input("Hi this is caesar cracker program\n is text.txt file contain encrypted text? (y/n): ")
 if choice.lower() == "y":
     start_decode(encrypted_text)
 else:
