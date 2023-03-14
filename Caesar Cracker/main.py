@@ -57,7 +57,7 @@ with open("text.txt") as f:
     for line in f.readlines():
         encrypted_text += line
 
-choice = input("Hi this is caesar cracker program\n is text.txt file contain encrypted text? (y/n): ")
+choice = input("Hi this is caesar cracker.txt program\n is text.txt file contain encrypted text? (y/n): ")
 if choice.lower() == "y":
     start_decode(encrypted_text)
 else:
